@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+        /* Optional custom styles */
+
+
+        .center-container {
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+            margin: auto;
+        }
+        div.center-container{
+        background-color:lightgray;
+        margin-top:30px;
+        width:70%;
+        }
+    </style>
+
+<div class="center-container">
+
+ <form class="f" method="post">
+
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter username">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+     <a href="">Forgot Password</a>
+ </form>
+  </div>
+
+
+{% endblock %}

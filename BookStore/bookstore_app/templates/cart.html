@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+
+</style>
+
+
+<center><h3>Cart-Items</h3></center>
+
+
+<div class="row row-col-1 row-cols-md-3 m-auto my-4">
+{% for car in cart %}
+    <div class="m-auto col-md-3">
+        <div class="card h-100">
+            {% if car.cover_image %}
+                <img height="150px" class="card-img-top" src="{{ car.cover_image.url }}">
+            {% endif %}
+             <div class="card-body">
+                <h5 class="card-title">{{ car.title }}</h5>
+                <h4 class="card-title">{{ car.book.author }}</h4>
+                <p><b>${{car.price}}</b></p>
+
+                <p >{{ car.description }}</p>
+                <a href="{%url 'delete_cart_item' car.pk %}"
+                   class="btn btn-danger">
+                    Remove
+                </a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- templates/accounts/forgot_password.html -->
+<h2>Forgot Password</h2>
+{% for message in messages %}
+<p>{{message}}</p>
+{% endfor %}
+<form method="post" action="{}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Reset Password</button>
+</form>
+
+</body>
+</html>

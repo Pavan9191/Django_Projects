@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>E-commerce Navbar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+
+
+        }
+
+        nav {
+            background-color: #555;
+            overflow: hidden;
+
+
+
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .l {
+            float: right;
+        }
+
+        .l {
+            float: right;
+                        /* Hide logout by default */
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <header class="bg-primary">
+        <h1 >Book-Store Website</h1>
+    </header>
+
+    <nav class="bg-primary">
+        <a href="#home">Home</a>
+        <a href="{% url 'list' %}">Books</a>
+
+
+        {% if user.is_authenticated %}
+        <div class="l">
+            
+
+            <a href="#" class="right"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+              </svg>{{user.username}}
+            <a href="{% url 'logout' %}">Logout</a>
+        </div>
+        <a href="{% url 'view_cart' %}">Cart</a>
+        {% else %}
+        <div class="l">
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+
+        {% endif %}
+         <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Content goes here -->
+
+{% block content %}
+{% endblock %}
+
+</body>
+<footer class="mt-auto mb-4">
+    <div class="text-center">
+        <span>
+          Copyright &copy <script>document.write(new Date().getFullYear())</script> Bookstore
+        </span>
+    </div>
+
+</footer>
+</html>
+
+
+
